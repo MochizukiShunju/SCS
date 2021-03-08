@@ -1,0 +1,43 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+      <%= form_with model: @item,url: items_path,local:true do |f| %>
+        <table>
+          <tr>
+            <td><%= f.label "商品画像" %></td>
+            <td><%= f.attachment_field :item_image %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "部品名" %></td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "型式" %></td>
+            <td><%= f.text_field :model %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "個数" %></td>
+            <td><%= f.text_field :amount %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "値段" %></td>
+            <td><%= f.text_field :price %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "購入元" %></td>
+            <td><%= f.text_field :retailer %></td>
+          </tr>
+          <tr>
+            <td><%= f.label "注文ステータス" %></td>
+            <td><%= f.text_field :status %></td>
+          </tr>
+
+          <tr>
+            <td></td>
+            <td><%= f.submit class: 'btn btn-success' %></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>

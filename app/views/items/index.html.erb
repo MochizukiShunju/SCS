@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row m-5 pl-5">
+    <h3>部品一覧</h3>
+    <div class="col">
+      <div class="float-right">
+        <%= link_to "新規部品登録", new_item_path, class: "btn btn-danger btn-lg" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead class="bg-light">
+          <tr>
+            <th></th>
+            <th><%= "部品名" %></th>
+            <th><%= "型式" %></th>
+            <th><%= "個数" %></th>
+            <th><%= "値段" %></th>
+            <th><%= "購入元" %></th>
+            <th><%= "注文ステータス" %></th>
+            <th><%= "お気に入り" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td><%= attachment_image_tag @item, :item_image, format: 'jpeg', fallback: "no-image-icon.jpg", size: "60x60" %></td>
+              <td><%= item.name %></td>
+              <td><%= item.model %></td>
+              <td><%= item.amount %></td>
+              <td><%= item.price %></td>
+              <td><%= item.retailer %></td>
+              <td><%= item.status %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
