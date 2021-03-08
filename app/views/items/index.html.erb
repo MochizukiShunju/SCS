@@ -17,19 +17,25 @@
             <th><%= "型式" %></th>
             <th><%= "個数" %></th>
             <th><%= "値段" %></th>
+            <th><%= "メーカー" %></th>
             <th><%= "購入元" %></th>
-            <th><%= "注文ステータス" %></th>
+            <th><%= "概要" %></th>
             <th><%= "お気に入り" %></th>
           </tr>
         </thead>
         <tbody>
           <% @items.each do |item| %>
             <tr>
-              <td><%= attachment_image_tag @item, :item_image, format: 'jpeg', fallback: "no-image-icon.jpg", size: "60x60" %></td>
+              <td>
+                <%= link_to item_path(item.id) do %>
+                  <%= attachment_image_tag item, :item_image, format: 'jpeg', fallback: "no-image-icon.jpg", size: "60x60" %>
+                <% end %>
+              </td>
               <td><%= item.name %></td>
               <td><%= item.model %></td>
               <td><%= item.amount %></td>
               <td><%= item.price %></td>
+              <td><%= item.maker %></td>
               <td><%= item.retailer %></td>
               <td><%= item.status %></td>
               <td></td>

@@ -1,0 +1,21 @@
+<table>
+  <% @item.comments.each do |comment| %>
+    <% comment_user = comment.user %>
+    <tr>
+    	<td>
+    		<%= link_to user_path(comment.user.id) do %>
+      		<%= attachment_image_tag comment_user, :image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
+      		<%= comment_user.name %>
+    		<% end %>
+    	</td>
+    	<td><%= comment.comment %></td>
+    	<% if current_user == comment_user %>
+      	<td><%= link_to 'Destroy', item_comment_path(comment.item.id, comment.id), class: 'btn-sm btn-danger', method: :delete %></td>
+    	<% end %>
+    </tr>
+  <% end %>
+</table>
+<%= form_with url: item_comments_path(@item.id), method: :post, local: true do |f| %>
+  <%= f.text_area :comment, size:"90x5" %>
+  <%= f.submit '送信'%>
+<% end %>

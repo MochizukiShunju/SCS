@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def deatroy
+    @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
   end
@@ -28,6 +29,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :group, :user_code)
+    params.require(:user).permit(:name, :group, :user_code, :image)
   end
 end

@@ -4,7 +4,7 @@
     <div class="mx-auto">
       <div class="row">
         <div class="col-xs-6　m-5 pt-5" >
-          <%= attachment_image_tag @user, :image, :fill, 500, 500, format: 'png', fallback: "no-image-icon.jpg" %>
+          <%= attachment_image_tag @user, :image, :fill, 500, 500, format: 'jpeg', fallback: "no-image-icon.jpg" %>
         </div>
         <div class="col-xs-6　m-5 pt-5">
            <p>社員名:<%= @user.name %></p>
