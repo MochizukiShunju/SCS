@@ -1,0 +1,2 @@
+$("textarea").val('');
+$('#comment_buttons_<%= @item.id %>').html("<%= j(render 'comments/comment', item: @item, comment: @comment) %>");

@@ -24,6 +24,8 @@ class UsersController < ApplicationController
   end
 
   def bookmark
+    @user = current_user
+    @bookmarks = Bookmark.where(user_id: @user)
   end
 
   private

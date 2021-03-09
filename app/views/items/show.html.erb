@@ -33,7 +33,7 @@
           </tr>
         </tbody>
       </table>
-      <%= render 'items/comment', item: @item, comment: @comment %>
+      <div id='comment_buttons_<%= @item.id %>'><%= render 'comments/comment', item: @item, comment: @comment %></div>
       </div>
     </div>
   </div>
