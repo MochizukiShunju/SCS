@@ -35,7 +35,7 @@
 
         <div class="form-group">
           <%= f.label "概要" %>
-          <%= f.text_field :status, class: "form-control-file status" %>
+          <%= f.select :status, [["注文中", "注文中"], ["納品済み", "納品済み"]], class: '' , required: true %>
         </div>
 
         <div class="form-group">

@@ -1,6 +1,7 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col'>
+<div class="container">
+  <div class="row row m-5 pl-5">
+    <h3>新規登録</h3>
+    <div class="mx-auto">
       <%= form_with model: @item,url: items_path,local:true do |f| %>
         <table>
           <tr>
@@ -32,10 +33,9 @@
             <td><%= f.text_field :retailer %></td>
           </tr>
           <tr>
-            <td><%= f.label "注文ステータス" %></td>
-            <td><%= f.text_field :status %></td>
+            <td><%= f.label "概要" %></td>
+            <td><%= f.select :status, [["注文中", "注文中"], ["納品済み", "納品済み"]], class: '' , required: true %></td>
           </tr>
-
           <tr>
             <td></td>
             <td><%= f.submit class: 'btn btn-success' %></td>

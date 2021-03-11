@@ -24,7 +24,12 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    @item.update!(item_params)
+    if @item.update(item_params)
+      # Item0個の時、通知作成メソッドの呼び出し
+      if @item.amount == 0
+         @item.update_notification_item!(current_user, @item.id)
+      end
+    end
     redirect_to items_path
   end
 

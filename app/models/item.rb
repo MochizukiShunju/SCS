@@ -33,5 +33,16 @@ class Item < ApplicationRecord
     notification.save if notification.valid?
   end
 
-
+  # item個数
+  def update_notification_item!(current_user, item_id)
+    users = User.where.not(id: current_user.id)
+    users.each do |user|
+      notification = current_user.active_notifications.new(
+      item_id: item_id,
+      visited_id: user.id,
+      action: 'quantity'
+      )
+    notification.save if notification.valid?
+    end
+  end
 end

@@ -1,0 +1,27 @@
+<% visitor = User.find(notification.visitor_id) %>
+<% visited = User.find(notification.visited_id) %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <span>
+        <%= link_to user_path(visitor) do %>
+          <%= attachment_image_tag visitor, :image, format: 'png', fallback: "no-image-icon.jpg", size: "60x60" %>
+        <% end %>
+      </span>
+      <strong >
+        <%= visitor.name %>さんが
+      </strong>
+      <span>
+        <%= link_to item_path(notification.item) do %>
+          <%= attachment_image_tag notification.item, :item_image, format: 'jpeg', fallback: "no-image-icon.jpg", size: "60x60" %>
+        <% end %>
+      </span>
+      <strong>
+        <%= Item.find(notification.item_id).name %>(<%= Item.find(notification.item_id).model %>)にコメントしました。
+      </strong>
+      <span><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></span>
+      <p class="mt-1"><%= Comment.find(notification.comment_id)&.comment %></p>
+    </div>
+  </div>
+
+</div>

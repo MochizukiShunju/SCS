@@ -7,6 +7,8 @@ class SearchsController < ApplicationController
   end
 
   private
+
+  #　完全一致検索
   def match(model, content)
     if model == 'user'
        User.where(name: content)
@@ -21,6 +23,7 @@ class SearchsController < ApplicationController
     end
   end
 
+  # 前方一致検索
   def forward(model, content)
     if model == 'user'
       User.where("name LIKE ?", "#{content}%")
@@ -35,6 +38,7 @@ class SearchsController < ApplicationController
     end
   end
 
+  #　後方一致検索
   def backward(model, content)
     if model == 'user'
       User.where("name LIKE ?", "%#{content}")
@@ -49,6 +53,7 @@ class SearchsController < ApplicationController
     end
   end
 
+  # 部分一致検索
   def partical(model, content)
     if model == 'user'
       User.where("name LIKE ?", "%#{content}%")
