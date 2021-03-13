@@ -24,7 +24,7 @@
                 <% end %>
               </th>
               <td><%= user.name %></td>
-              <td><%= user.group %></td>
+              <td><%= user.department %></td>
               <td><%= user.user_code %></td>
               <% if user == current_user %>
                 <td><%= link_to 'Edit', edit_user_path(user.id), class: "btn btn-sm btn-success edit_user_#{user.id}" %></td>

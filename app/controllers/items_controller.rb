@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @items = Item.all
+    @items = Item.order("#{sort_column} #{sort_direction}")
   end
 
   def new
@@ -44,4 +47,13 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :model, :amount, :price, :retailer, :status, :item_image, :maker)
   end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def sort_column
+    Item.column_names.include?(params[:sort]) ? params[:sort] : 'id'
+  end
+
 end

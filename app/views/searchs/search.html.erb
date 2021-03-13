@@ -25,7 +25,7 @@
                   <% end %>
                 </th>
                 <td><%= datas.name %></td>
-                <td><%= datas.group %></td>
+                <td><%= datas.department %></td>
                 <td><%= datas.user_code %></td>
                 <% if datas == current_user %>
                   <td><%= link_to 'Edit', edit_user_path(datas), class: "btn btn-sm btn-success edit_user_#{datas}" %></td>
@@ -43,8 +43,8 @@
               <th></th>
               <th><%= "部品名" %></th>
               <th><%= "型式" %></th>
-              <th><%= "個数" %></th>
-              <th><%= "値段" %></th>
+              <th><%= sort_order_for_search "amount", "個数" %></th>
+              <th><%= sort_order_for_search "price", "値段" %></th>
               <th><%= "メーカー" %></th>
               <th><%= "購入元" %></th>
               <th><%= "概要" %></th>
@@ -66,7 +66,7 @@
                 <td><%= datas.maker %></td>
                 <td><%= datas.retailer %></td>
                 <td><%= datas.status %></td>
-                <td><%= render 'bookmarks/bookmark', item: datas %></td>
+                <td id='bookmark_buttons_<%= datas.id %>'><%= render 'bookmarks/bookmark', item: datas %></td>
               </tr>
             <% end %>
           </tbody>
