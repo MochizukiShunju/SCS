@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
     @item = Item.find(params[:item_id])
     @comment = current_user.comments.new(comment_params)
     @comment.item_id = @item.id
-    @comment.save
-    # 通知作成メソッドの呼び出し
-    @item.create_notification_comment!(current_user, @comment.id)
+    if @comment.save
+      # 通知作成メソッドの呼び出し
+      @item.create_notification_comment!(current_user, @comment.id)
+    else
+      render 'show'
+    end
   end
 
   def destroy

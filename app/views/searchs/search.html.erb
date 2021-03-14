@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row m-5 pl-5">
-    <h3>search for"<%= @content %>"</h3>
+    <h3>検索結果"<%= @content %>"</h3>
   </div>
   <div class="row">
     <div class="col">
@@ -61,8 +61,8 @@
                 </td>
                 <td><%= datas.name %></td>
                 <td><%= datas.model %></td>
-                <td><%= datas.amount %></td>
-                <td><%= datas.price %></td>
+                <td><%= datas.amount %>個</td>
+                <td><%= converting_to_jpy(datas.price) %></td>
                 <td><%= datas.maker %></td>
                 <td><%= datas.retailer %></td>
                 <td><%= datas.status %></td>
@@ -72,6 +72,7 @@
           </tbody>
         <% end %>
       </table>
+      <%= paginate @datas %>
     </div>
   </div>
 </div>

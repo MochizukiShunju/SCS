@@ -1,3 +1,4 @@
+<!--コメントした際の通知画面-->
 <% visitor = User.find(notification.visitor_id) %>
 <% visited = User.find(notification.visited_id) %>
 <div class="container">
@@ -20,6 +21,7 @@
         <%= Item.find(notification.item_id).name %>(<%= Item.find(notification.item_id).model %>)にコメントしました。
       </strong>
       <span><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></span>
+      <span><%= link_to '確認', notification_path(notification.id), method: :delete, data: { confirm: '本当に確認しましたか？' }, class: "btn btn-sm btn-danger destroy_user_#{notification.id}"%></span>
       <p class="mt-1"><%= Comment.find(notification.comment_id)&.comment %></p>
     </div>
   </div>

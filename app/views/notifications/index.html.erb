@@ -6,10 +6,12 @@
     <div class="col">
       <% if @notifications.exists? %>
           <% @notifications.each do | notification | %>
+            <!--コメントの通知-->
             <% if notification.action == 'comment' %>
-              <%= render 'notifications/comment', {notification: notification} %>
+              <%= render 'notifications/comment', notification: notification %>
             <% else %>
-              <%= render 'notifications/quantity', {notification: notification} %>
+            　<!--Itemが0個または0位上になった際の通知-->
+              <%= render 'notifications/quantity', notification: notification %>
             <% end %>
           <% end %>
           <%= paginate @notifications %>

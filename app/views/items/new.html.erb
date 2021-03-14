@@ -2,6 +2,7 @@
   <div class="row row m-5 pl-5">
     <h3>新規登録</h3>
     <div class="mx-auto">
+      <%= render 'layouts/errors', obj: @item %>
       <%= form_with model: @item,url: items_path,local:true do |f| %>
         <table>
           <tr>

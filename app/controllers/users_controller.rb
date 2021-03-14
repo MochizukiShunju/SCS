@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(5)
   end
 
   def show
@@ -13,8 +16,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to users_path
+    if @user.update(user_params)
+       redirect_to users_path
+    else
+      render 'edit'
+    end
   end
 
   def deatroy
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
 
   def bookmark
     @user = current_user
-    @bookmarks = Bookmark.where(user_id: @user)
+    @bookmarks = Bookmark.where(user_id: @user).page(params[:page]).per(5)
   end
 
   private

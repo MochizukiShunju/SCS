@@ -27,8 +27,8 @@
               </td>
               <td><%= bookmark.item.name %></td>
               <td><%= bookmark.item.model %></td>
-              <td><%= bookmark.item.amount %></td>
-              <td><%= bookmark.item.price %></td>
+              <td><%= bookmark.item.amount %>個</td>
+              <td><%= converting_to_jpy(bookmark.item.price) %></td>
               <td><%= bookmark.item.maker %></td>
               <td><%= bookmark.item.retailer %></td>
               <td><%= bookmark.item.status %></td>
@@ -36,6 +36,7 @@
           <% end %>
         </tbody>
       </table>
+      <%= paginate @bookmarks %>
     </div>
   </div>
 

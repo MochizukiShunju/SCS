@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
-
+  before_action :authenticate_user!
   helper_method :sort_column, :sort_direction
 
   def index
-    @items = Item.order("#{sort_column} #{sort_direction}")
+    # 名前順に並び替え
+    @items = Item.order(:name).order("#{sort_column} #{sort_direction}").page(params[:page]).per(5)
   end
 
   def new
@@ -21,8 +22,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to items_path
+    if @item.save
+      redirect_to items_path
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -31,9 +35,13 @@ class ItemsController < ApplicationController
       # Item0個の時、通知作成メソッドの呼び出し
       if @item.amount == 0
          @item.update_notification_item!(current_user, @item.id)
+      elsif @item.amount > 0
+         @item.update_notification_item!(current_user, @item.id)
       end
+      redirect_to items_path
+    else
+      render 'edit'
     end
-    redirect_to items_path
   end
 
   def destroy

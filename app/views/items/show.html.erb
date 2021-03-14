@@ -23,8 +23,8 @@
             <td><%= attachment_image_tag @item, :item_image, format: 'jpeg', fallback: "no-image-icon.jpg", size: "60x60" %></td>
             <td><%= @item.name %></td>
             <td><%= @item.model %></td>
-            <td><%= @item.amount %></td>
-            <td><%= @item.price %></td>
+            <td><%= @item.amount %>個</td>
+            <td><%= converting_to_jpy(@item.price) %></td>
             <td><%= @item.maker %></td>
             <td><%= @item.retailer %></td>
             <td><%= @item.status %></td>
