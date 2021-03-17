@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-info bg-info">
     <div class="container">
-      <a class="navbar-brand" href="/"><span>SCS</span></a>
+      <h2 class="text-white">SCS</h2>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -9,12 +9,12 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li><%= link_to 'top', root_path, class: 'fas fa-home nav-link text-light' %></li>
-          <li><%= link_to '社員一覧', users_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to '社員一覧', users_path, class: 'fas fa-user nav-link text-light' %></li>
           <li><%= link_to '部品一覧', items_path, class: 'fas fa-desktop nav-link text-light' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>
           <li><%= link_to 'top', homes_top_path, class: 'fas fa-home nav-link text-light' %></li>
-          <li><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-user nav-link text-light' %></li>
           <li><%= link_to 'ログイン', new_user_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%></li>
         <% end %>
         </ul>
