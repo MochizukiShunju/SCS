@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'notifications#index'
   get 'homes/top' => 'homes#top'
+  get 'homes/about' => 'homes#about'
   get 'users/bookmark' => 'users#bookmark'
   get '/search' => 'searchs#search'
 

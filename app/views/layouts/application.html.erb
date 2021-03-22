@@ -7,16 +7,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <style>
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+          width: 80%;
+          margin: auto;
+      }
+    </style>
+
   </head>
 
-  <%= render 'layouts/header' %>
-
   <body>
+    <%= render 'layouts/header' %>
     <div class="wrapper">
       <%= yield %>
-
     </div>
+    <%= render 'layouts/footer' %>
   </body>
-
-  <%= render 'layouts/footer' %>
 </html>

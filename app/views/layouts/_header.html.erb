@@ -14,6 +14,7 @@
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-light' %></li>
         <% else %>
           <li><%= link_to 'top', homes_top_path, class: 'fas fa-home nav-link text-light' %></li>
+          <li><%= link_to 'about', homes_about_path, class: 'fas fa-home nav-link text-light' %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: 'fas fa-user nav-link text-light' %></li>
           <li><%= link_to 'ログイン', new_user_session_path ,class: 'fas fa-sign-in-alt nav-link text-light'%></li>
         <% end %>
@@ -21,9 +22,5 @@
       </div>
     </div>
   </nav>
-  <div class="col m-1">
-    <div class="float-right">
-      <%= render 'searchs/search' %>
-    </div>
-  </div>
+  <%= render 'searchs/search' %>
 </header>
