@@ -3,21 +3,28 @@
     <h3>新着通知</h3>
   </div>
   <div class="row">
-    <div class="col">
-      <% if @notifications.exists? %>
+    <div class="col-1"></div>
+    <div class="col-10">
+      <div class="flex">
+        <% if @notifications.exists? %>
           <% @notifications.each do | notification | %>
             <!--コメントの通知-->
             <% if notification.action == 'comment' %>
-              <%= render 'notifications/comment', notification: notification %>
+              <div class="border">
+                <%= render 'notifications/comment', notification: notification %>
+              </div>
             <% else %>
-            　<!--Itemが0個または0位上になった際の通知-->
-              <%= render 'notifications/quantity', notification: notification %>
+              <div class="border">
+                <!--Itemが0個または0位上になった際の通知-->
+                <%= render 'notifications/quantity', notification: notification %>
+              </div>
             <% end %>
           <% end %>
           <%= paginate @notifications %>
-      <% else %>
-        <p>通知はありません</p>
-      <% end %>
+        <% else %>
+          <p>通知はありません</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
