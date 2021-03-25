@@ -14,6 +14,7 @@ class Item < ApplicationRecord
 	validates :price, presence: true
 	validates :retailer, presence: true
 	validates :maker, presence: true
+	validates :position, presence: true
 
   def create_notification_comment!(current_user, comment_id)
 		# 自分以外にコメントしている人をすべて取得し、全員に通知を送る

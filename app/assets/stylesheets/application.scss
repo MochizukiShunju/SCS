@@ -53,7 +53,7 @@ section {
 }
 
 
-.h1 {
+.title {
   position: fixed;
   top: 0;left: 0;right: 0;bottom: 0;
   margin: auto;
@@ -66,8 +66,8 @@ section {
   z-index: 2;
 }
 
-.h1:before {
-  content:"Thomas Podgro";
+.title:before {
+  content:"welcome to";
   position: absolute;
   top: -50px;left: 0;right: 0;bottom: 0;
   margin: auto;
@@ -75,7 +75,7 @@ section {
   letter-spacing:3px;
 }
 
-.h1:after {
+.title:after {
   content:"";
   height: 2px;
   width: 10%;
@@ -86,15 +86,83 @@ section {
   position: absolute;
 }
 
+.button1 {
+  height: 40px;
+  width: 300px;
+  color:#fff;
+  border:2px solid #fff;
+  position: fixed;
+  bottom: 300px;
+  right: 570px;
+  transition:0.2s all ease-out;
+}
 
-// 通新規通知
+.button1:before {
+  position: absolute;
+  width: 20px;
+  left: -75px;
+  bottom: -40px;
+  text-align:center;
+  font-size:12px;
+  text-transform:uppercase;
+  color:#fff;
+  opacity: 0;
+  transform:scale(0.2) translateY(100px);
+  transition:0.2s all ease-out;
+}
+
+.button1:hover {
+  background: #fff;
+  color:#000;
+  transform:scale(1.2);
+}
+.button1:hover:before {
+  transform:scale(1) translateY(0);
+  opacity: 1;
+}
+
+.button2 {
+  height: 40px;
+  width: 300px;
+  color:#fff;
+  border:2px solid #fff;
+  position: fixed;
+  bottom: 250px;
+  right: 570px;
+  transition:0.2s all ease-out;
+}
+
+.button2:before {
+  position: absolute;
+  width: 20px;
+  left: -75px;
+  bottom: -40px;
+  text-align:center;
+  font-size:12px;
+  text-transform:uppercase;
+  color:#fff;
+  opacity: 0;
+  transform:scale(0.2) translateY(100px);
+  transition:0.2s all ease-out;
+}
+
+.button2:hover {
+  background: #fff;
+  color:#000;
+  transform:scale(1.2);
+}
+.button2:hover:before {
+  transform:scale(1) translateY(0);
+  opacity: 1;
+}
+
+// 通新規通知、コメントの枠
 .flex {
-  border: solid;
-  border-height: 100px;
+  border: 1px solid;
   display: flex;
   flex-direction: column;
 }
 
-.border{
+.border {
   border-bottom: solid;
 }

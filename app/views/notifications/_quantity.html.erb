@@ -10,13 +10,7 @@
             <%= Item.find(notification.item_id).name %>(<%= Item.find(notification.item_id).model %>)
           <% end %>
         </span>
-        <strong>の在庫が</strong>
-        <span>
-          <%= link_to item_path(notification.item) do %>
-            <%= Item.find(notification.item_id).amount %>
-          <% end %>
-        </span>
-        <strong>個になりました。注文してください。</strong>
+        <strong>の在庫が<%= Item.find(notification.item_id).amount %>個になりました。注文してください。</strong>
         <span><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></span>
         <span><%= link_to '確認', notification_path(notification.id), method: :delete, data: { confirm: '本当に確認しましたか？' }, class: "btn btn-sm btn-danger destroy_user_#{notification.id}"%></span>
 
@@ -28,13 +22,7 @@
             <%= Item.find(notification.item_id).name %>(<%= Item.find(notification.item_id).model %>)
           <% end %>
         </span>
-        <strong>が</strong>
-        <span>
-          <%= link_to item_path(notification.item) do %>
-            <%= Item.find(notification.item_id).amount %>
-          <% end %>
-        </span>
-        <strong>納品しました。</strong>
+        <strong>が<%= Item.find(notification.item_id).amount %>個納品しました。</strong>
         <span><%= notification.created_at.strftime('%Y/%m/%d %H:%M') %></span>
         <span><%= link_to '確認', notification_path(notification.id), method: :delete, data: { confirm: '本当に確認しましたか？' }, class: "btn btn-sm btn-danger destroy_user_#{notification.id}"%></span>
       <% end %>

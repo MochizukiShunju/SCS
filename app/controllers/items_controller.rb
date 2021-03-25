@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :model, :amount, :price, :retailer, :status, :item_image, :maker)
+    params.require(:item).permit(:name, :model, :amount, :price, :retailer, :status, :item_image, :maker, :position)
   end
 
   def sort_direction

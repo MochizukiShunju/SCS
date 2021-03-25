@@ -46,6 +46,7 @@
               <th><%= sort_order_for_search "amount", "個数" %></th>
               <th><%= sort_order_for_search "price", "値段" %></th>
               <th><%= "メーカー" %></th>
+              <th><%= "保管場所" %></th>
               <th><%= "購入元" %></th>
               <th><%= "概要" %></th>
               <th><%= "ブックマーク" %></th>
@@ -64,6 +65,7 @@
                 <td><%= datas.amount %>個</td>
                 <td><%= converting_to_jpy(datas.price) %></td>
                 <td><%= datas.maker %></td>
+                <td><%= datas.position %></td>
                 <td><%= datas.retailer %></td>
                 <td><%= datas.status %></td>
                 <td id='bookmark_buttons_<%= datas.id %>'><%= render 'bookmarks/bookmark', item: datas %></td>

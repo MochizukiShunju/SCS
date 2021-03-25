@@ -13,6 +13,7 @@
             <th><%= "個数" %></th>
             <th><%= "値段" %></th>
             <th><%= "メーカー" %></th>
+            <th><%= "保管場所" %></th>
             <th><%= "購入元" %></th>
             <th><%= "概要" %></th>
           </tr>
@@ -30,6 +31,7 @@
               <td><%= bookmark.item.amount %>個</td>
               <td><%= converting_to_jpy(bookmark.item.price) %></td>
               <td><%= bookmark.item.maker %></td>
+              <td><%= bookmark.item.position %></td>
               <td><%= bookmark.item.retailer %></td>
               <td><%= bookmark.item.status %></td>
             </tr>
