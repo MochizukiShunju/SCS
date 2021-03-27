@@ -1,5 +1,4 @@
-<table>
-  <div class="flex">
+<table class="flex">
     <% if @item.comments.exists? %>
       <% @item.comments.each do |comment| %>
         <% comment_user = comment.user %>
@@ -18,9 +17,10 @@
         </tr>
       <% end %>
     <% else %>
-      <p class="text-center">コメントはありません</p>
+      <tr>
+        <td><p class="text-center">コメントはありません</p></td>
+      </tr>
     <% end %>
-  </div>
 </table>
 <%= form_with url: item_comments_path(@item.id), method: :post, remote: true do |f| %>
   <%= f.text_area :comment, size:"88x5", class: "mt-1" %>
