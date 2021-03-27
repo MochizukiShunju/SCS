@@ -14,6 +14,6 @@ class NotificationsController < ApplicationController
     #通知を削除
     @notification = Notification.find(params[:id])
     @notification.destroy
-    redirect_to root_path
+    redirect_to notifications_path
   end
 end
