@@ -27,8 +27,8 @@
               <td><%= user.department %></td>
               <td><%= user.user_code %></td>
               <% if user == current_user %>
-                <td><%= link_to 'Edit', edit_user_path(user.id), class: "btn btn-sm btn-success edit_user_#{user.id}" %></td>
-                <td><%= link_to 'Destroy', user_path(user.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_user_#{user.id}"%></td>
+                <td><%= link_to '編集', edit_user_path(user.id), class: "btn btn-sm btn-success edit_user_#{user.id}" %></td>
+                <td><%= link_to '社員消去', user_path(user.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_user_#{user.id}"%></td>
               <% else %>
                 <th></th>
                 <th></th>

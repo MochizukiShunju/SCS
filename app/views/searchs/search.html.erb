@@ -28,8 +28,8 @@
                 <td><%= datas.department %></td>
                 <td><%= datas.user_code %></td>
                 <% if datas == current_user %>
-                  <td><%= link_to 'Edit', edit_user_path(datas), class: "btn btn-sm btn-success edit_user_#{datas}" %></td>
-                  <td><%= link_to 'Destroy', user_path(datas), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_user_#{datas}"%></td>
+                  <td><%= link_to '編集', edit_user_path(datas), class: "btn btn-sm btn-success edit_user_#{datas}" %></td>
+                  <td><%= link_to '社員消去', user_path(datas), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_user_#{datas}"%></td>
                 <% else %>
                   <th></th>
                   <th></th>
