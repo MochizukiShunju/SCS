@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     # 名前順に並び替え
-    @items = Item.order(:name).order("#{sort_column} #{sort_direction}").page(params[:page]).per(5)
+    @items = Item.order("#{sort_column} #{sort_direction}").page(params[:page]).per(5)
   end
 
   def new
